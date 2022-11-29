@@ -27,7 +27,7 @@ Just Clone this repository and import into **Android Studio**
 
 ## Configuration
 ### API KEY:
-In your `local.properties` file add a property with the following info:
+In your `local.properties` file add a property with the following info (without the qoutes):
 ```gradle
 api_key='YOUR_API_KEY_FROM_NYTIMES'
 ```
