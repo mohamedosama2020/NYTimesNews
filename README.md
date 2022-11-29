@@ -5,6 +5,19 @@ This is Android Application for retrieving NewYork Times news
 ## Installation
 Just Clone this repository and import into **Android Studio**
 
+## Package structure
+* data
+	* ApiService
+	* Repostory 	
+* entities
+	* remote
+	* ui
+* ui
+	* news_list
+	* news_details 	
+* usecases	
+* di
+
 ## Technolgies Used
 * Clean Architecture
 * Dagger Hilt
