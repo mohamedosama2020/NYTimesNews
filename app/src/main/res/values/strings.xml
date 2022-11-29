@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NYTimesNews</string>
+    <string name="go_to_news_details">Go To News Details</string>
+</resources>
