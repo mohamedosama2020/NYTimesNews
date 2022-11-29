@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mohamed.nytimesnews.models.news.remote.NewsListResponse
-import com.mohamed.nytimesnews.models.news.remote.toUIModel
-import com.mohamed.nytimesnews.models.news.ui.News
+import com.mohamed.nytimesnews.entities.news.remote.toUIModel
+import com.mohamed.nytimesnews.entities.news.ui.News
 import com.mohamed.nytimesnews.usecases.GetNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

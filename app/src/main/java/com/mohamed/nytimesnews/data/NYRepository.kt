@@ -1,6 +1,6 @@
 package com.mohamed.nytimesnews.data
 
-import com.mohamed.nytimesnews.models.news.remote.NewsListResponse
+import com.mohamed.nytimesnews.entities.news.remote.NewsListResponse
 import retrofit2.Response
 
 class NYRepository(private val apiService: ApiService) {

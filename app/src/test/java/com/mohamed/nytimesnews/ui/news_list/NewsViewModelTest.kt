@@ -1,7 +1,8 @@
 package com.mohamed.nytimesnews.ui.news_list
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.mohamed.nytimesnews.models.news.remote.NewsListResponse
+import com.mohamed.nytimesnews.entities.news.remote.NewsListResponse
+import com.mohamed.nytimesnews.entities.news.remote.toUIModel
 import com.mohamed.nytimesnews.usecases.GetNewsUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -45,28 +46,26 @@ internal class NewsViewModelTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `Get Successful News List From UseCase THEN hide progress bar with News List Value`() {
-
-        val viewModel = NewsViewModel(getNewsUseCase)
         val newsListResponse = NewsListResponse()
+        val viewModel = NewsViewModel(getNewsUseCase)
 
         runTest(testDispatcher) {
             coEvery { getNewsUseCase() } returns Response.success(200, newsListResponse)
-            viewModel.getNews()
         }
+
         assert(viewModel.showLoading.value == false)
-        assert(viewModel.news.value == newsListResponse)
+        assert(viewModel.news.value == newsListResponse.toUIModel())
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `Get Failed News List From UseCase THEN hide progress bar with null Value`() {
-
         val viewModel = NewsViewModel(getNewsUseCase)
 
         runTest(testDispatcher) {
             coEvery { getNewsUseCase() } returns Response.error(400,byteArrayOf().toResponseBody())
-            viewModel.getNews()
         }
+
         assert(viewModel.showLoading.value == false)
         assert(viewModel.news.value == null)
     }

@@ -1,24 +1,25 @@
 package com.mohamed.nytimesnews.ui.news_list
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.mohamed.nytimesnews.databinding.ActivityMainBinding
-import com.mohamed.nytimesnews.models.news.ui.News
+import com.mohamed.nytimesnews.databinding.ActivityNewsBinding
+import com.mohamed.nytimesnews.entities.news.ui.News
+import com.mohamed.nytimesnews.ui.news_details.NewsDetailsActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NewsActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityNewsBinding
     private val viewModel: NewsViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         observeData()
     }
@@ -37,6 +38,12 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun onNewsItemClicked(news: News) {
-        Toast.makeText(this, news.title, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, NewsDetailsActivity::class.java)
+        intent.putExtra(NEWS_EXTRAS, news)
+        startActivity(intent)
+    }
+
+    companion object {
+        const val NEWS_EXTRAS = "News_Extras"
     }
 }

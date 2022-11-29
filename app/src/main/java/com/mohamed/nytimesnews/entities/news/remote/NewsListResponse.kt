@@ -1,16 +1,13 @@
-package com.mohamed.nytimesnews.models.news.remote
+package com.mohamed.nytimesnews.entities.news.remote
 
-import android.os.Parcelable
-import com.mohamed.nytimesnews.models.news.ui.News
-import kotlinx.parcelize.Parcelize
+import com.mohamed.nytimesnews.entities.news.ui.News
 
-@Parcelize
 data class NewsListResponse(
     val copyright: String = "",
     val numResults: Int = 0,
     val results: List<Result> = listOf(),
     val status: String = ""
-) : Parcelable
+)
 
 fun NewsListResponse.toUIModel(): List<News> {
     return this.results.map {

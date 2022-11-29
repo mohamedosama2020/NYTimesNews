@@ -1,9 +1,5 @@
-package com.mohamed.nytimesnews.models.news.remote
+package com.mohamed.nytimesnews.entities.news.remote
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
 data class Result(
     val abstract: String = "",
     val adx_keywords: String = "",
@@ -26,4 +22,4 @@ data class Result(
     val updated: String = "",
     val uri: String = "",
     val url: String = ""
-) : Parcelable
+)

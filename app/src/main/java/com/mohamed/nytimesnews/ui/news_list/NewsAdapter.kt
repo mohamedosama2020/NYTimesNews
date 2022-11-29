@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mohamed.nytimesnews.databinding.NewsItemBinding
-import com.mohamed.nytimesnews.models.news.ui.News
+import com.mohamed.nytimesnews.entities.news.ui.News
 
 
 class NewsAdapter(private val newsList: List<News> = listOf(), private val onClick: (News) -> Unit) :
